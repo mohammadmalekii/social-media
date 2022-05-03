@@ -8,7 +8,7 @@ const OppositeUser = () => {
                 <div class="flex items-center ">
                     <img src="img/gold-color-solid-background-1920x1080.png" alt="" class="w-8 h-8 rounded-full" />
                     <div class="text-white ml-3">
-                        <a class="text-lg cursor-pointer">charlie</a>
+                        <a href="#" class="text-lg cursor-pointer">charlie</a>
                         <p class="text-[13px] text-gray-400 ">online</p>
                     </div>
                 </div>
