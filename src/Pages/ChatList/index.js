@@ -3,7 +3,7 @@ import ChatListItem from '../ChatListItem'
 
 const ChatList = () => {
   return (
-    <div className="bg-zinc-800 w-5/12">
+    <div className="bg-zinc-800 w-full">
       <ChatListItem />  
       <ChatListItem />  
       <ChatListItem />  
