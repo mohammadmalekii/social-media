@@ -11,7 +11,7 @@ const Chat = () => {
         <div class="flex">
                 <ChatSidebar />
                 <ChatList />
-            <div class="flex flex-col justify-between w-7/12 min-w-xl h-screen mx-auto w bg-chat_body">
+            <div class="flex flex-col justify-between w-7/12 min-w-xl h-screen mx-auto w bg-stone-900">
                 <OppositeUser />
                 <Message/>
                 <SendMessage/>
