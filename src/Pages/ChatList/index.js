@@ -4,16 +4,11 @@ import ChatListHeading from '../../Components/ChatListHeading'
 
 const ChatList = () => {
   return (
-      <>
-        <div className='flex-col w-2/6 bg-left_message'>
-          <ChatListHeading/>
-        <div className="bg-left_message">
-          <ChatListItem />  
-          {/* <ChatListItem />  
-          <ChatListItem />   */}
-        </div>
-        </div>
-      </>
+    <div className="bg-zinc-800 w-full">
+      <ChatListItem />  
+      <ChatListItem />  
+      <ChatListItem />  
+    </div>
   )
 }
 
