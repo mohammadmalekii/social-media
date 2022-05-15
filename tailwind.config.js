@@ -11,9 +11,6 @@ module.exports = {
         text_color: "#D4D4D4",
       },
     },
-    font_size: {
-      very_smile: ["8px"]
-    }
   },
   plugins: [],
 }
