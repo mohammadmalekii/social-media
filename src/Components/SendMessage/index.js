@@ -3,7 +3,7 @@ import React from 'react'
 const SendMessage = () => {
     return (
         <>
-            <form action="" className="flex justify-center bg-stone-900 py-4 px-10 ">
+            <form action="" className="flex justify-center py-4 px-10 ">
                 <div className="flex w-full rounded-xl overflow-hidden">
                     <div>
                         <button className="text-white bg-zinc-800 p-4 transition-all duration-150 active:bg-gray-700">

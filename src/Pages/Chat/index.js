@@ -5,17 +5,19 @@ import SendMessage from './../../Components/SendMessage'
 import ChatList from '../ChatList'
 import ChatSidebar from '../ChatSidebar'
 import SearchBar from '../../Components/SearchBar'
+import ChatListHeader from '../../Components/ChatListHeading'
 
 const Chat = () => {
     return (
 
         <div class="flex">
             <ChatSidebar />
-            <div className="flex flex-col w-5/12 bg-zinc-800">
+            <div className="flex flex-col w-4/12 bg-zinc-800">
+                <ChatListHeader/>
                 <SearchBar />
                 <ChatList />
             </div>
-            <div class="flex flex-col justify-between w-7/12 min-w-xl h-screen mx-auto w bg-stone-900">
+            <div class="flex flex-col justify-between w-full min-w-xl h-screen mx-auto w bg-[#151718]">
                 <OppositeUser />
                 <Message />
                 <SendMessage />
