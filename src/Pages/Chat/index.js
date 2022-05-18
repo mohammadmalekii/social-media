@@ -5,7 +5,7 @@ import SendMessage from './../../Components/SendMessage'
 import ChatList from '../ChatList'
 import ChatSidebar from '../ChatSidebar'
 import SearchBar from '../../Components/SearchBar'
-import ChatListHeader from '../../Components/ChatListHeading'
+import ChatListHeader from '../../Components/ChatListHeader'
 
 const Chat = () => {
     return (
