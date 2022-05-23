@@ -23,7 +23,7 @@ const OppositeUser = () => {
                     
 
                    
-                    <ul className={`list-none p-2 bg-[#323741] border-[#363a43] rounded-xl text-white transition-all ease-in-out duration-300 mt-3 font-normal z-30 ${showDropDown ? 'translate-x-0' : `opacity-0 hidden -translate-x-full`}`}>
+                    <ul className={`list-none p-2 bg-[#323741] border-[#363a43] rounded-xl text-white transition-all ease-in-out duration-300 mt-3 font-normal z-30 ${showDropDown ? 'scale-100' : `opacity-0 scale-0`}`}>
                         <li className='flex items-center p-1 pb-3 rounded-sm cursor-pointer hover:bg-[#2a2d35]'>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="h-5 w-5 ml-4" viewBox="0 0 16 16">
                                 <path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zM6 5.04 4.312 6.39A.5.5 0 0 1 4 6.5H2v3h2a.5.5 0 0 1 .312.11L6 10.96V5.04zm7.854.606a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0z" />
