@@ -1,13 +1,19 @@
 import React from 'react'
 
-const Setting = ({setShowSetting}) => {
+const Setting = ({setShowSetting, setShowSidebar}) => {
+
+  const handleSettingForm = () => {
+    setShowSetting(false)
+    setShowSidebar(false)
+  }
+
   return (
     <div className="flex z-50 w-full h-full justify-center items-center ease-in-out duration-500 show">
         <div className="bg-slate-800 text-white w-[28%] rounded-xl flex flex-col justify-center items-center space-y-3">
 
             <div className="flex justify-between w-full p-4">
               <h1>setting</h1>
-                <svg onClick={() => setShowSetting(false)} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg onClick={handleSettingForm} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </div>

@@ -1,6 +1,11 @@
 import React from 'react'
 
-const Contacts = ({setShowContact}) => {
+const Contacts = ({setShowSidebar,setShowContact}) => {
+
+  const handleContactForm = () => {
+    setShowSidebar(false)
+    setShowContact(false)
+  }
   
   return (
 
@@ -25,7 +30,7 @@ const Contacts = ({setShowContact}) => {
       </div>
 
         <div className="flex justify-end items-center w-full space-x-4 mt-10">
-            <button onClick={() => setShowContact(false)} className="ease-in-out duration-200 px-3 py-2 rounded-xl hover:bg-blue-200/10">لغو</button>
+            <button onClick={handleContactForm} className="ease-in-out duration-200 px-3 py-2 rounded-xl hover:bg-blue-200/10">لغو</button>
             <button className="ease-in-out duration-200 px-3 py-2 rounded-xl hover:bg-blue-200/10">تایید</button>
         </div>
   </form>

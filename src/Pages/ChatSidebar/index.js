@@ -9,16 +9,23 @@ const ChatMenu = () => {
     const [showSetting, setShowSetting] = useState(false);
     
     const handleModal = (e) => {
-      console.log(e.target)
-      console.log(e)
       if (e.target.matches(".show")) {
         setShowSidebar(false);
-        console.log(1)
-      }
-      if(e.target.children.length > 1){
-        e.target.children.length = 1
+        setShowContact(false)
+        setShowSetting(false)
       }
     };
+
+    const handleForm = (form) => {
+      if(form === "setting"){
+        setShowSetting(true)
+        setShowContact(false)
+      }
+      else{
+        setShowContact(true)
+        setShowSetting(false)
+      }
+    }
 
 
     return (
@@ -26,8 +33,8 @@ const ChatMenu = () => {
       <div className="bg-zinc-900 h-full w-[7%]">
 
         <div className={`h-full ${showSidebar ? 'fixed w-full bg-[rgba(0,0,0,.7)] duration-300 opacity-100 z-10 show' : 'opacity-0'}`} onClick={handleModal}>
-            {showContact && <Contacts setShowContact={setShowContact}/>}
-            {showSetting && <Setting setShowSetting={setShowSetting}/>} 
+            {showContact && <Contacts setShowContact={setShowContact} setShowSidebar={setShowSidebar} />}
+            {showSetting && <Setting setShowSetting={setShowSetting} setShowSidebar={setShowSidebar} />}
         </div>
       <div className="flex flex-col items-center justify-center min-h-screen py-2">
         <svg
@@ -55,13 +62,13 @@ const ChatMenu = () => {
           </div>
 
           <ul className="flex flex-col pt-5">
-            <li onClick={() => setShowSetting(true)} className="flex space-x-2 px-5 py-3.5 hover:bg-slate-700 ease-in-out duration-200 cursor-pointer">
+            <li onClick={() => handleForm("setting")} className="flex space-x-2 px-5 py-3.5 hover:bg-slate-700 ease-in-out duration-200 cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
               <p>تنظیمات</p>
             </li>
-            <li onClick={() => setShowContact(true)} className="flex space-x-2 px-5 py-3.5 hover:bg-slate-700 ease-in-out duration-200 cursor-pointer">
+            <li onClick={() => handleForm("contact")} className="flex space-x-2 px-5 py-3.5 hover:bg-slate-700 ease-in-out duration-200 cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
@@ -71,13 +78,19 @@ const ChatMenu = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
-              <p>تنظیمات</p>
+              <p>بایگانی</p>
             </li>
             <li className="flex space-x-2 px-5 py-3.5 hover:bg-slate-700 ease-in-out duration-200 cursor-pointer">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-              </svg>
-              <p>تنظیمات</p>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+              <p>حالت شب</p>
+
+              <label for="default-toggle" class="relative inline-flex items-center mb-4 cursor-pointer">
+                <input type="checkbox" value="" id="default-toggle" class="sr-only peer" />
+                <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+              </label>
+
             </li>
           </ul>
         </div>
