@@ -5,7 +5,6 @@ import SendMessage from './../../Components/SendMessage'
 import ChatList from '../ChatList'
 import ChatSidebar from '../ChatSidebar'
 import SearchBar from '../../Components/SearchBar'
-import ChatListHeader from '../../Components/ChatListHeader'
 
 const Chat = () => {
     return (
@@ -13,7 +12,6 @@ const Chat = () => {
         <div class="flex">
             <ChatSidebar />
             <div className="flex flex-col w-4/12 bg-zinc-800">
-                <ChatListHeader/>
                 <SearchBar />
                 <ChatList />
             </div>

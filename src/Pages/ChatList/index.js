@@ -1,6 +1,5 @@
 import React from 'react'
 import ChatListItem from '../../Components/ChatListItem'
-import ChatListHeading from '../../Components/ChatListHeader'
 
 const ChatList = () => {
   return (
