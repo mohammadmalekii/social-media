@@ -10,7 +10,7 @@ const OppositeUser = () => {
                 <img src="img/gold-color-solid-background-1920x1080.png" alt="" className="w-8 h-8 rounded-full" />
                 <div className="text-white ml-3">
                     <a href="#" className="text-lg cursor-pointer">charlie</a>
-                    <p className="text-sm text-gray-400 ">online</p>
+                    <p className="text-sm text-gray-400 ">{(navigator.onLine ? 'on' : 'off') + 'line'}</p>
                 </div>
             </div>
 
