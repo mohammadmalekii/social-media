@@ -19,8 +19,10 @@ const Setting = ({ setShowSetting, setShowSidebar }) => {
           </svg>
         </div>
 
-        <div className="flex justify-start py-5 items-center border-b border-zinc-900 w-full m-0">
-          <img className='w-16 h-16 rounded-md' src={profile} alt="" />
+        <div className="flex justify-start py-5 items-center border-b border-zinc-700 w-full m-0">
+          <div className='w-16 h-16 rounded-md overflow-hidden'>
+            <img className='w-full h-full' src={profile} alt="" />
+          </div>
 
           <div className="flex flex-col mx-5">
             <h1 className="text-xl">Nicola</h1>
