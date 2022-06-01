@@ -9,8 +9,8 @@ const Contacts = ({setShowSidebar,setShowContact}) => {
   
   return (
 
-<div className="flex z-50 w-full h-full justify-center items-center ease-in-out duration-500 show">
-    <form className="bg-slate-700 w-3/12 p-6 text-white rounded-xl flex flex-col justify-center items-center space-y-10">
+<div className="flex z-50 w-full h-full justify-end items-center xl:justify-center ease-in-out duration-500 show">
+    <form className="bg-slate-700 z-50 w-full h-screen md:h-auto md:w-96 md:rounded-xl mr-0 lg:mr-10 md:mr-3 xl:mr-0 p-6 text-white rounded-xl flex flex-col justify-center items-center space-y-10">
 
       <h1 className="text-3xl mb-5">مخاطب جدید</h1>
 
