@@ -3,10 +3,12 @@ import React, { useState } from 'react'
 const OppositeUser = () => {
     const [showDropDown, setShowDropDown] = useState(false)
     const [report, setReport] = useState(false)
+    const [exit, setExit] = useState(false)
 
     const handleShow = () => {
         setShowDropDown(false)
         setReport(false)
+        setExit()
     }
 
     return (
@@ -47,7 +49,7 @@ const OppositeUser = () => {
                             </svg>
                             <span>گزارش</span>
                         </li>
-                        <li className='flex items-center p-1 pb-3 rounded-sm cursor-pointer hover:bg-[#2a2d35]'>
+                        <li className='flex items-center p-1 pb-3 rounded-sm cursor-pointer hover:bg-[#2a2d35]' onClick={() => setExit(true)}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                             </svg>
@@ -73,7 +75,18 @@ const OppositeUser = () => {
                 null
             }
 
-            
+            {showDropDown && exit
+                ?
+                <>
+                    <div className={`${exit ? 'h-full w-full bg-black/25 fixed duration-300 opacity-100' : 'opacity-0'}`} onClick={() => setExit(false)}></div>
+                    <div dir='rtl' className={`${showDropDown && exit ? "bg-[#323741] text-white left-[38%] top-[40%] fixed w-[28rem] h-32 rounded-lg pt-4 pr-5 scale-100 opacity-100" : "opacity-0 scale-0"}`}>
+                        <p className=''>آیا قصد دارید گروه/ کانال را ترک کنید؟</p>
+                        <div class="flex justify-end items-center w-full space-x-4 mt-10"><button onClick={() => setExit(false)} class="ease-in-out duration-200 px-3 py-2 rounded-xl hover:bg-blue-200/10">لغو</button><button className="text-red-500 ease-in-out duration-200 px-3 py-2 rounded-xl hover:bg-blue-200/10">ترک کانال</button></div>
+                    </div>
+                </>
+                :
+                null
+            }
 
         </>
     )
