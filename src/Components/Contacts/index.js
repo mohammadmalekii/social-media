@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Contacts = ({setShowSidebar,setShowContact}) => {
+const Contacts = ({setShowSidebar,closeSidebar}) => {
 
   const handleContactForm = () => {
     setShowSidebar(false)
-    setShowContact(false)
+    closeSidebar()
   }
   
   return (

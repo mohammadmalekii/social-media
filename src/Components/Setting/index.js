@@ -1,11 +1,11 @@
 import React from 'react'
 import profile from './alex-suprun-1JGHAAdbL_Y-unsplash.jpg'
 
-const Setting = ({ setShowSetting, setShowSidebar }) => {
+const Setting = ({ setShowSetting, closeSidebar }) => {
 
   const handleSettingForm = () => {
     setShowSetting(false)
-    setShowSidebar(false)
+    closeSidebar()
   }
 
   return (
