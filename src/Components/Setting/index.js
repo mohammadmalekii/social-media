@@ -9,8 +9,8 @@ const Setting = ({ setShowSetting, closeSidebar }) => {
   }
 
   return (
-    <div dir='rtl' className="flex z-50 w-full h-full justify-start items-center xl:justify-center ease-in-out duration-500 show">
-      <div className="bg-zinc-800 z-50 text-white w-full h-screen md:h-auto md:w-96 md:rounded-xl flex flex-col mr-0 lg:mr-10 md:mr-3 xl:mr-0 justify-start items-center space-y-3 py-4 px-6">
+    <div dir='rtl' className="flex z-50 w-full h-full justify-center items-center ease-in-out duration-500 show">
+      <div className="bg-zinc-800 z-50 text-white w-96 flex flex-col items-center space-y-3 py-4 px-6">
 
         <div className="flex items-center justify-between w-full pb-3">
           <h1>تنظیمات</h1>

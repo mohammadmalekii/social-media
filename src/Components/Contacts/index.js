@@ -1,17 +1,17 @@
 import React from 'react'
 
-const Contacts = ({setShowSidebar,closeSidebar}) => {
+const Contacts = ({setShowContact,closeSidebar}) => {
 
   const handleContactForm = () => {
-    setShowSidebar(false)
+    setShowContact(false)
     closeSidebar()
   }
   
   return (
 
 
-<div className="flex z-50 w-full h-full justify-end items-center xl:justify-center ease-in-out duration-500 show">
-    <form className="bg-zinc-800 z-50 w-full h-screen md:h-auto md:w-96 md:rounded-xl mr-0 lg:mr-10 md:mr-3 xl:mr-0 p-6 text-white rounded-xl flex flex-col justify-center items-center space-y-10">
+<div className="flex z-50 w-full h-full justify-center items-center ease-in-out duration-500 show">
+    <form className="bg-zinc-800 z-50 h-screen w-96 p-6 text-white rounded-xl flex flex-col justify-center items-center space-y-10">
       <h1 className="text-3xl mb-5">مخاطب جدید</h1>
 
       <div dir="rtl" className="relative z-0 w-full mb-6 group">
