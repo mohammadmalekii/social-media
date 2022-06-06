@@ -9,13 +9,13 @@ import SearchBar from '../../Components/SearchBar'
 const Chat = () => {
     return (
 
-        <div class="flex">
+        <div class="flex overflow-hidden">
             <ChatSidebar />
-            <div className="flex flex-col w-4/12 bg-zinc-800">
+            <div className="flex flex-col w-full sm:w-[40rem] lg:w-[33rem] bg-zinc-800">
                 <SearchBar />
                 <ChatList />
             </div>
-            <div class="flex flex-col justify-between w-full min-w-xl h-screen mx-auto w bg-[#151718]">
+            <div class="hidden md:flex flex-col justify-between w-full min-w-xl h-screen mx-auto w bg-[#151718]">
                 <OppositeUser />
                 <Message />
                 <SendMessage />

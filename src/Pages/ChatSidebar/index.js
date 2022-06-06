@@ -30,31 +30,10 @@ const ChatMenu = () => {
 
   return (
     <>
-      <div className="bg-zinc-900 h-full w-[7%]">
+      <div className="bg-zinc-900 h-full w-15 sm:w-28">
 
         <div className={`h-full ${showSidebar ? 'fixed w-full bg-[rgba(0,0,0,.7)] duration-300 opacity-100 z-10 show' : 'opacity-0'}`} onClick={handleModal}>
-          {showContact && <Contacts setShowContact={setShowContact} setShowSidebar={setShowSidebar} />}
-          {showSetting && <Setting setShowSetting={setShowSetting} setShowSidebar={setShowSidebar} />}
-        </div>
-        <div className="flex flex-col items-center justify-center min-h-screen py-2">
-          <svg
-            onClick={() => setShowSidebar(true)}
-            className="fixed z-30 flex items-center cursor-pointer left-6 top-4"
-            fill="#2563EB"
-            viewBox="0 0 100 80"
-            width="35"
-            height="35"
-          >
-            <rect width="100" height="10"></rect>
-            <rect y="30" width="100" height="10"></rect>
-            <rect y="60" width="100" height="10"></rect>
-          </svg>
-
-
-          <div
-            className={`top-0 left-0 px-6 w-96 bg-zinc-800 pt-12 text-white fixed h-full z-40 ease-in-out duration-300 ${showSidebar ? "translate-x-0" : "-translate-x-full"
-              }`}
-          >
+        <div className={`top-0 left-0 px-6 w-80 sm:w-96 bg-zinc-800 pt-12 text-white fixed h-full z-30 ease-in-out duration-300 ${showSidebar ? "translate-x-0" : "-translate-x-full"}`}>
             <div className="flex flex-col items-center pb-5 border-b border-zinc-700">
               <div className="w-20 h-20 rounded-full overflow-hidden">
                 <img className="w-full h-full" src={profile} alt="avatar" />
@@ -140,6 +119,25 @@ const ChatMenu = () => {
 
             </ul>
           </div>
+          {showContact && <Contacts setShowContact={setShowContact} setShowSidebar={setShowSidebar} />}
+          {showSetting && <Setting setShowSetting={setShowSetting} setShowSidebar={setShowSidebar} />}
+        </div>
+        <div className="flex flex-col items-center justify-start min-h-screen py-4 px-3">
+          <svg
+            onClick={() => setShowSidebar(true)}
+            className="cursor-pointer left-6 top-4"
+            fill="#2563EB"
+            viewBox="0 0 100 80"
+            width="35"
+            height="35"
+          >
+            <rect width="100" height="10"></rect>
+            <rect y="30" width="100" height="10"></rect>
+            <rect y="60" width="100" height="10"></rect>
+          </svg>
+
+
+          
         </div>
 
       </div>
