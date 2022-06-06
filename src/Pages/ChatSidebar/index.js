@@ -9,7 +9,18 @@ const ChatMenu = () => {
   const [showContact, setShowContact] = useState(false);
   const [showSetting, setShowSetting] = useState(false);
 
+  const [toggle, setToggle] = useState(false);
 
+  const handleToggle = () => {
+    console.log(toggle)
+    setToggle(!toggle)
+    if (!toggle) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }
+  
   const closeSidebar = () => {
     setShowShadow(false)
     setShowSidebar(false);
@@ -40,20 +51,20 @@ const ChatMenu = () => {
 
   return (
     <>
-      <div className="bg-zinc-900 h-full w-15 sm:w-28">
+      <div className="bg-slate-700 dark:bg-zinc-900 h-full w-15 sm:w-28">
         <div className={`h-full ${showShadow ? 'fixed w-full bg-[rgba(0,0,0,.7)] duration-300 opacity-100 z-10 show' : 'opacity-0'}`} onClick={handleModal}>
-        <div className={`top-0 left-0 px-6 w-80 sm:w-96 bg-zinc-800 pt-12 text-white fixed h-full z-30 ease-in-out duration-300 ${showSidebar ? "translate-x-0" : "-translate-x-full"}`}>
-            <div className="flex flex-col items-center pb-5 border-b border-zinc-700">
+        <div className={`top-0 left-0 px-6 w-80 sm:w-96 bg-white dark:bg-zinc-800 pt-12 dark:text-white fixed h-full z-30 ease-in-out duration-300 ${showSidebar ? "translate-x-0" : "-translate-x-full"}`}>
+            <div className="flex flex-col items-center pb-5 border-b border-gray-400 dark:border-zinc-700">
               <div className="w-20 h-20 rounded-full overflow-hidden">
                 <img className="w-full h-full" src={profile} alt="avatar" />
               </div>
               <h1 className="pt-2 text-lg">Nicola</h1>
-              <p className="text-blue-300 text-sm">+98 912 121 2121</p>
+              <p className="text-blue-500 dark:text-blue-300 text-sm">+98 912 121 2121</p>
               <p className='text-sm text-gray-400'>tehran</p>
             </div>
 
             <ul dir="rtl" className="flex flex-col pt-5">
-              <li onClick={() => handleForm("contact")} className="flex items-center justify-between py-3.5 hover:bg-slate-700 hover:px-3 ease-in-out duration-300 cursor-pointer rounded-2xl">
+              <li onClick={() => handleForm("contact")} className="flex items-center justify-between py-3.5 hover:bg-slate-200 dark:hover:bg-slate-700 hover:px-3 ease-in-out duration-300 cursor-pointer rounded-2xl">
                 <div className='flex items-center'>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 16 16">
                     <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
@@ -66,7 +77,7 @@ const ChatMenu = () => {
                 </svg>
               </li>
 
-              <li onClick={() => handleForm("contact")} className="flex items-center justify-between py-3.5 hover:bg-slate-700 hover:px-3 ease-in-out duration-300 cursor-pointer rounded-2xl">
+              <li onClick={() => handleForm("contact")} className="flex items-center justify-between py-3.5 hover:bg-slate-200 dark:hover:bg-slate-700 hover:px-3 ease-in-out duration-300 cursor-pointer rounded-2xl">
                 <div className='flex items-center'>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-5 h-5" viewBox="0 0 16 16">
                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
@@ -78,7 +89,7 @@ const ChatMenu = () => {
                 </svg>
               </li>
               
-              <li onClick={() => handleForm("setting")} className="flex items-center justify-between py-3.5 hover:bg-slate-700 hover:px-3 ease-in-out duration-300 cursor-pointer rounded-2xl">
+              <li onClick={() => handleForm("setting")} className="flex items-center justify-between py-3.5 hover:bg-slate-200 dark:hover:bg-slate-700 hover:px-3 ease-in-out duration-300 cursor-pointer rounded-2xl">
                 <div className='flex items-center'>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-5 h-5" viewBox="0 0 16 16">
                     <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
@@ -91,7 +102,7 @@ const ChatMenu = () => {
                 </svg>
               </li>
 
-              <li className="flex items-center justify-between py-3.5 hover:bg-slate-700 hover:px-3 ease-in-out duration-300 cursor-pointer rounded-2xl">
+              <li className="flex items-center justify-between py-3.5 hover:bg-slate-200 dark:hover:bg-slate-700 hover:px-3 ease-in-out duration-300 cursor-pointer rounded-2xl">
                 <div className='flex items-center'>  
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-5 h-5" viewBox="0 0 16 16">
                     <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
@@ -103,7 +114,7 @@ const ChatMenu = () => {
                 </svg>
               </li>
 
-              <li className="flex items-center justify-between py-3.5 hover:bg-slate-700 hover:px-3 ease-in-out duration-300 cursor-pointer rounded-2xl">
+              <li className="flex items-center justify-between py-3.5 hover:bg-slate-200 dark:hover:bg-slate-700 hover:px-3 ease-in-out duration-300 cursor-pointer rounded-2xl">
                 <div className='flex items-center'>  
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
                     <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
@@ -115,17 +126,20 @@ const ChatMenu = () => {
                 </svg>
               </li>
               
-              <li className="flex items-center py-3.5 hover:bg-slate-700 hover:px-3 ease-in-out duration-300 cursor-pointer rounded-2xl">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-5 h-5" viewBox="0 0 16 16">
-                  <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
-                </svg>
-                <p className="pr-3">حالت شب</p>
-                <label for="default-toggle" className="relative inline-flex items-center mr-1 cursor-pointer">
-                  <input type="checkbox" value="" id="default-toggle" className="sr-only peer" />
-                  <div className="w-11 h-[28px] pt-1 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                </label>
+              <div className="flex justify-between hover:bg-slate-200 dark:hover:bg-slate-700 ease-in-out duration-300 cursor-pointer hover:px-3 items-center relative py-3.5 rounded-2xl">
+              <li onClick={handleToggle} className="w-full flex justify-between items-center">
+                <div className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-5 h-5" viewBox="0 0 16 16">
+                    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
+                  </svg>
+                  <p className="pr-3">حالت شب</p>
+                </div>
               </li>
-
+                <label for="checked-toggle" className="absolute left-2 inline-flex items-center cursor-pointer">
+                  <input onClick={handleToggle} type="checkbox" id="checked-toggle" className="sr-only peer" checked={toggle} />
+                  <div className="w-11 h-6 bg-gray-400 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                </label>
+              </div>
             </ul>
           </div>
           {showContact && <Contacts setShowContact={setShowContact} closeSidebar={closeSidebar} />}
@@ -133,22 +147,14 @@ const ChatMenu = () => {
         </div>
         <div className="flex flex-col items-center justify-start min-h-screen py-4 px-3">
           <svg
-            onClick={() => {
-              setShowSidebar(true)
-              setShowShadow(true)
-            }
-            }
-            className="cursor-pointer left-6 top-4"
-            fill="#2563EB"
-            viewBox="0 0 100 80"
-            width="35"
-            height="35"
-          >
-            <rect width="100" height="10"></rect>
-            <rect y="30" width="100" height="10"></rect>
-            <rect y="60" width="100" height="10"></rect>
+          onClick={() => {
+            setShowSidebar(true)
+            setShowShadow(true)
+          }
+          }
+           xmlns="http://www.w3.org/2000/svg" className="h-11 w-11 cursor-pointer left-6 top-4 text-gray-300 dark:text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
-          
         </div>
 
       </div>
