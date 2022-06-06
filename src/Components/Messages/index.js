@@ -1,9 +1,14 @@
 import React from 'react'
+import useRightClickMenu from "../../hooks/useRightClickMenu";
+import ContextMenu from '../ContextMenu';
 
 const Message = () => {
+    const {x, y, showMenu} = useRightClickMenu();
     return (
 
         <div className="overflow-y-scroll h-4/5">
+
+            <ContextMenu x={x} y={y} showMenu={showMenu} />
 
             <div className="flex justify-end px-10 pt-5">
                 <div className="mx-3">
@@ -41,6 +46,7 @@ const Message = () => {
                 </div>
             </div>
         </div>
+        
     )
 }
 
