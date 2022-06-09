@@ -1,5 +1,4 @@
-import React from 'react'
-import avatar from "../../avatar.png"
+import avatar from "../../images/avatar.png"
 
 const ChatListItem = () => {
   return (

@@ -1,11 +1,10 @@
-import React from 'react'
 import './App.css'
-import Chat from './Pages/Chat'
+import Home from './Pages/Home'
 
 const App = () => {
   return (
     <>
-      <Chat />
+      <Home />
     </>
   )
 }
