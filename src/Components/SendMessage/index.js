@@ -1,5 +1,3 @@
-import React from 'react'
-
 const SendMessage = () => {
     return (
             <form className="flex justify-center py-4 px-10 ">

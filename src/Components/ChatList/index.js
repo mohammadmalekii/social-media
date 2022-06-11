@@ -1,5 +1,4 @@
-import React from 'react'
-import ChatListItem from '../../Components/ChatListItem'
+import ChatListItem from '../ChatListItem'
 
 const ChatList = () => {
   return (
