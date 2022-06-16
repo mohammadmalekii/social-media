@@ -9,7 +9,7 @@ const Setting = ({ setShowSetting, closeSidebar }) => {
 
   return (
     <div dir='rtl' className="flex z-50 w-full h-full justify-center items-center ease-in-out duration-500 show">
-      <div className="bg-white dark:bg-zinc-800 z-50 dark:text-white w-96 flex flex-col items-center rounded-lg space-y-3 py-4 px-6">
+      <div className="bg-slate-50 dark:bg-zinc-800 z-50 dark:text-white w-96 flex flex-col items-center rounded-lg space-y-3 py-4 px-6">
         <div className="flex items-center justify-between w-full pb-3">
           <h1>تنظیمات</h1>
           <svg onClick={handleSettingForm} xmlns="http://www.w3.org/2000/svg" className="h-[35px] w-[35px] cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-700 active:bg-zinc-100 dark:active:bg-zinc-600 transition-color duration-300  p-2 rounded-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -17,7 +17,7 @@ const Setting = ({ setShowSetting, closeSidebar }) => {
           </svg>
         </div>
 
-        <div className="flex justify-start py-5 items-center border-b border-zinc-700 w-full m-0">
+        <div className="flex justify-start py-5 items-center border-b border-zinc-300 w-full m-0">
           <div className='w-16 h-16 rounded-md overflow-hidden'>
             <img className='w-full h-full' src={profile} alt="" />
           </div>
@@ -78,7 +78,7 @@ const Setting = ({ setShowSetting, closeSidebar }) => {
           </li>
         </ul>
 
-        <ul className="flex flex-col w-full border-t border-zinc-700 pt-4">
+        <ul className="flex flex-col w-full border-t border-zinc-300 pt-4">
           
           <li className="flex items-center py-3.5 hover:bg-gray-200 dark:hover:bg-slate-700 hover:pr-3 ease-in-out duration-300 cursor-pointer rounded-2xl">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-5 h-5" viewBox="0 0 16 16">

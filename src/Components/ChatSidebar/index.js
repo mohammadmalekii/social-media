@@ -35,7 +35,7 @@ const ChatSidbar = () => {
     
       <div className="bg-slate-700 dark:bg-zinc-900 h-full w-15 sm:w-28">
         <div className={`h-full ${showShadow ? 'fixed w-full bg-[rgba(0,0,0,.7)] duration-300 opacity-100 z-10 show' : 'opacity-0'}`} onClick={handleModal}>
-        <div className={`top-0 left-0 px-6 w-80 sm:w-96 bg-white dark:bg-zinc-800 pt-12 dark:text-white fixed h-full z-30 ease-in-out duration-300 ${showSidebar ? "translate-x-0" : "-translate-x-full"}`}>
+        <div className={`top-0 left-0 px-6 w-80 sm:w-96 bg-slate-50 dark:bg-zinc-800 pt-12 dark:text-white fixed h-full z-30 ease-in-out duration-300 ${showSidebar ? "translate-x-0" : "-translate-x-full"}`}>
             <SidebarProfile />
             <SidebarItems setShowSidebar={setShowSidebar} setShowContact={setShowContact} setShowSetting={setShowSetting} />
             

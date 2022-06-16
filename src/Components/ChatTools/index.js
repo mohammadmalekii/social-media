@@ -11,14 +11,14 @@ const ChatTools = () => {
     <>
       <div dir="rtl" className="relative box-border">
         <div>
-          <div className="flex justify-evenly items-center">
+          <div className="flex items-center">
             <svg
               onClick={() => setShowDropDown(!showDropDown)}
               xmlns="http://www.w3.org/2000/svg"
               width="39"
               height="39"
               fill="currentColor"
-              className="dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-700 active:bg-zinc-200 dark:active:bg-zinc-600 transition-color duration-300 cursor-pointer p-2 rounded-full"
+              className="dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-700 active:bg-zinc-200 dark:active:bg-zinc-600 transition-color duration-300 cursor-pointer p-2 rounded-full "
               viewBox="0 0 16 16"
             >
               <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
@@ -27,7 +27,7 @@ const ChatTools = () => {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
-              className="h-4 w-4 ml-4 dark:text-white cursor-pointer"
+              className="h-4 w-4 ml-4 dark:text-white cursor-pointer mr-2"
               viewBox="0 0 16 16"
             >
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -136,7 +136,7 @@ const ChatTools = () => {
             dir="rtl"
             className={`${
               showDropDown && report
-                ? "bg-white dark:bg-zinc-700 dark:text-white left-[38%] top-[40%] fixed w-[28rem] h-32 rounded-lg pt-4 pr-5 scale-100 opacity-100"
+                ? "bg-slate-50 dark:bg-zinc-700 dark:text-white left-[38%] top-[40%] fixed w-[28rem] h-32 rounded-lg pt-4 pr-5 scale-100 opacity-100"
                 : "opacity-0 scale-0"
             }`}
           >
@@ -170,7 +170,7 @@ const ChatTools = () => {
             dir="rtl"
             className={`${
               showDropDown && exit
-                ? "bg-white dark:bg-zinc-700 dark:text-white left-[38%] top-[40%] fixed w-[28rem] h-32 rounded-lg pt-4 pr-5 scale-100 opacity-100"
+                ? "bg-slate-50 dark:bg-zinc-700 dark:text-white left-[38%] top-[40%] fixed w-[28rem] h-32 rounded-lg pt-4 pr-5 scale-100 opacity-100"
                 : "opacity-0 scale-0"
             }`}
           >

@@ -6,7 +6,7 @@ const ChatHeader = () => {
 
     return (
 
-        <div className="flex justify-between px-10 py-2 bg-white dark:bg-zinc-800 h-16">
+        <div className="flex justify-between px-10 py-2 bg-slate-50 dark:bg-zinc-800 h-16">
             <ChatProfile/>
             <ChatTools/>
         </div>
