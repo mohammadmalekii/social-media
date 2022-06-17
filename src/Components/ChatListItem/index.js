@@ -3,7 +3,7 @@ import avatar from "../../images/avatar.png"
 const ChatListItem = () => {
   return (
     
-    <div className="w-full flex justify-between text-slate-900 dark:text-white border-b border-zinc-300 dark:border-zinc-900 px-5 hover:bg-zinc-200  dark:hover:bg-zinc-700 hover:cursor-pointer ease-in-out duration-200">
+    <div className="w-full flex justify-between  text-slate-900 dark:text-white px-5 hover:bg-zinc-200  dark:hover:bg-zinc-700 hover:cursor-pointer ease-in-out duration-200">
     <div className="flex py-3 items-center">
       <img className="w-12" src={avatar} alt="avatar"/>
       <div className="flex flex-col pl-3">
