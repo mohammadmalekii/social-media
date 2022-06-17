@@ -12,9 +12,9 @@ export default function validate(values) {
   }
 
   // username
-  // if (!values.username) {
-  //   errors.username = "نام کاربری اجباری است !";
-  // }
+  if (!values.username) {
+    errors.username = "نام کاربری اجباری است !";
+  }
 
   //   email
   if (!values.email) {
