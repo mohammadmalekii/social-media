@@ -1,10 +1,14 @@
 import useForm from "../../../hooks/useForm";
-import validate from "../validate";
+import validate from "./validate";
 
 const Login = () => {
-  const { values, handleInputChange, handleSubmit, isSubmit, errors } =
-    useForm(validate);
-
+  const { values, handleInputChange, handleSubmit, errors } = useForm(
+    validate,
+    {
+      username: "",
+      password: "",
+    }
+  );
   return (
     <div className="w-4/5 md:w-3/5 lg:w-1/3 transition-all ease-in-out duration-300 delay-300 shadow-xl">
       <form

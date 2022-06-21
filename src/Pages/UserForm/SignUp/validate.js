@@ -3,17 +3,12 @@ export default function validate(values) {
 
   //   firstname
   if (!values.firstname) {
-    errors.firstname = "نام اجباری است !";
+    errors.firstname = "نام اجباری است";
   }
 
   //   lastname
   if (!values.lastname) {
-    errors.lastname = "نام خانوادگی اجباری است !";
-  }
-
-  // username
-  if (!values.username) {
-    errors.username = "نام کاربری اجباری است !";
+    errors.lastname = "نام خانوادگی اجباری است";
   }
 
   //   email

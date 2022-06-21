@@ -1,16 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 
-const useForm = (validate) => {
-  const [values, setValues] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    password2: "",
-  });
+const useForm = (validate, initialValue) => {
+  const [values, setValues] = useState(initialValue);
+  const navigate = useNavigate();
 
-  const [errors, setErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
+  const [errors, setErrors] = useState({ error: "initError" });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -20,17 +15,15 @@ const useForm = (validate) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors(validate(values));
-    setIsSubmit(true);
-
-    if (Object.keys(errors).length === 0) {
-      setIsSubmit(true);
-      console.log(true);
-    } else {
-      setIsSubmit(false);
-      console.log(false);
-    }
   };
-  return { values, handleInputChange, handleSubmit, isSubmit, errors };
+
+  useEffect(() => {
+    if (Object.values(errors).filter(Boolean).length === 0) {
+      navigate("/home", { replace: true });
+    }
+  }, [errors, navigate]);
+
+  return { values, handleInputChange, handleSubmit, errors };
 };
 
 export default useForm;
