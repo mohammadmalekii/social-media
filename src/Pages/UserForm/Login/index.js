@@ -1,14 +1,8 @@
-import useForm from "../../../hooks/useForm";
-import validate from "./validate";
+import useLogin from "../../../hooks/useLogin";
 
 const Login = () => {
-  const { values, handleInputChange, handleSubmit, errors } = useForm(
-    validate,
-    {
-      username: "",
-      password: "",
-    }
-  );
+  const { values, handleInputChange, handleSubmit, errors } = useLogin();
+
   return (
     <div className="w-4/5 md:w-3/5 lg:w-1/3 transition-all ease-in-out duration-300 delay-300 shadow-xl">
       <form
@@ -31,6 +25,9 @@ const Login = () => {
             نام کاربری
           </label>
           {errors.username && <p className="text-red-600">{errors.username}</p>}
+          {errors.wrongUsername && (
+            <p className="text-red-600">{errors.wrongUsername}</p>
+          )}
         </div>
         <div dir="rtl" className="relative z-0 w-4/5 group">
           <input
@@ -48,6 +45,12 @@ const Login = () => {
             رمز عبور
           </label>
           {errors.password && <p className="text-red-600">{errors.password}</p>}
+          {errors.wrongPassword && (
+            <p className="text-red-600">{errors.wrongPassword}</p>
+          )}
+          {errors.manyRequest && (
+            <p className="text-red-600">{errors.manyRequest}</p>
+          )}
         </div>
 
         <button
