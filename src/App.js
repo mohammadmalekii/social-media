@@ -1,5 +1,5 @@
 import "./App.css";
-import Home from "./Pages/Home";
+import Chat from "./Pages/Chat";
 import Form from "./Pages/UserForm/Form";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -8,7 +8,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Form />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/chat" element={<Chat />} />
       </Routes>
     </BrowserRouter>
   );
