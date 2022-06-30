@@ -24,14 +24,27 @@ const ChatTools = () => {
               <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
             </svg>
 
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              className="h-4 w-4 ml-4 dark:text-white cursor-pointer mr-2"
-              viewBox="0 0 16 16"
-            >
-              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-            </svg>
+            <div className="relative lg:w-96">
+              <input type="search" name="search" placeholder="جستجوی پیام..." className="relative peer text-sm z-10 bg-transparent w-10 h-10 rounded-full border cursor-pointer outline-none transition-all duration-300 px-5 focus:w-full focus:border-blue-500 focus:cursor-text focus:pr-[40px]"/>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                className="absolute inset-y-0 my-auto h-4 w-10 border-r border-transparent peer-focus:z-20 peer-focus:cursor-pointer"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+              </svg>
+              {/* <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                className="absolute inset-y-0 my-auto h-4 w-10 border-r border-transparent peer-focus:border-blue-500 peer-focus dark:text-white cursor-pointer"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+              </svg> */}
+            </div>
+            
+
           </div>
 
           <div
