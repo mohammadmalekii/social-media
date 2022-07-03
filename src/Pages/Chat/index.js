@@ -16,6 +16,7 @@ const Chat = () => {
   const [user, setuser] = useState()
   const [chatUsers, setChatUsers] = useState([])
   const [receiver, setReceiver] = useState(null)
+  const [messages, setMessages] = useState([])
 
 
   useEffect(() => {
@@ -47,8 +48,8 @@ const Chat = () => {
       </div>
       <div className="hidden md:flex flex-col justify-between w-full min-w-xl h-screen mx-auto bg-neutral-100 dark:bg-zinc-900">
           <ChatHeader />
-          <ChatBody receiver={receiver}/>
-          <SendMessage />
+          <ChatBody receiver={receiver} user={user} messages={messages}/>
+          <SendMessage receiver={receiver} user={user} setMessages={setMessages}/>
       </div>
     </div>
   )

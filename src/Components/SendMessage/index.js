@@ -1,6 +1,68 @@
-const SendMessage = () => {
+import { useEffect, useState } from "react"
+import { doc, getDoc, onSnapshot, setDoc, updateDoc } from "firebase/firestore"
+import { db } from "../../firebase.config"
+
+const SendMessage = ({receiver, user, setMessages}) => {
+    const [conversationId, setConversationId] = useState(null)
+    const [text, setText] = useState('')
+
+    // handle sending the messages
+    const handleSendMessage = async(e) => {
+        e.preventDefault()
+        if(text === '')return
+        const myMessage = {
+            message: text,
+            uid:user.uid,
+        }
+        setText('')
+        // add and save message to firebase
+        const conversation = doc(db, "conversations", conversationId)
+        const docSnap = await getDoc(conversation)
+        // append message to exiting conversation
+        if (docSnap.exists()) {
+            const docData = docSnap.data()
+            await updateDoc(conversation, {
+                messages: [...docData.messages, myMessage]
+            })
+        }else{
+            // create a new conversation
+            await setDoc(doc(db, "conversations", conversationId),{
+                messages: [myMessage],
+            })
+        }
+        
+    }
+
+    // set conversationId
+    useEffect(() => {
+        if (!receiver || !user) return
+
+        let myConvId
+
+        if(receiver.uid > user.uid) myConvId = receiver.uid + user.uid;
+        else myConvId = user.uid + receiver.uid
+        
+        setConversationId(myConvId)
+    }, [receiver, user])
+
+    // get conversation from firestore
+    useEffect(() => {
+        if(!conversationId) return 
+        const unSub = onSnapshot(
+            doc(db, "conversations", conversationId),
+            (doc) => {
+                const currentData = doc.data();
+                if(currentData?.messages.length > 0) 
+                setMessages(currentData.messages)
+                else setMessages([])
+            }
+        )
+        return unSub
+    }, [conversationId,setMessages])
+    
+
     return (
-            <form className="flex justify-center py-4 px-10 ">
+            <form onSubmit={handleSendMessage} className="flex justify-center py-4 px-10 ">
                 <div className="flex w-full rounded-xl overflow-hidden bg-slate-50">
                     <div>
                         <button className="dark:text-white bg-slate-50 dark:bg-zinc-800 p-4 transition-all duration-150 active:bg-gray-200 dark:active:bg-gray-700">
@@ -9,7 +71,7 @@ const SendMessage = () => {
                           </svg>
                         </button>
                     </div>
-                    <input type="text" placeholder="Message..." className="text-sm pl-1 px-6 py-3 bg-slate-50 dark:bg-zinc-800 dark:text-white outline-none w-full max-w-full" />
+                    <input type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Message..." className="text-sm pl-1 px-6 py-3 bg-slate-50 dark:bg-zinc-800 dark:text-white outline-none w-full max-w-full" />
                     <button type="button" className="text-gray-600 dark:text-white bg-slate-50 dark:bg-zinc-800 p-4 active:bg-gray-200 dark:active:bg-gray-700">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
