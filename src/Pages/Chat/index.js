@@ -5,10 +5,24 @@ import ChatList from '../../Components/ChatList'
 import ChatSidebar from '../../Components/ChatSidebar'
 import SearchBar from '../../Components/SearchBar'
 
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router'
 
-const Home = () => {
+const Chat = () => {
+  const navigate = useNavigate();
+  const [user, setuser] = useState()
+
+  useEffect(() => {
+    // get from localStorage
+    const user = JSON.parse(localStorage.getItem("user"))
+
+    // if no user -> redirect
+    user ? setuser(user) : navigate('/')
+  }, [navigate])
+
+  
+
   return (
-    
     <div className="flex overflow-hidden">
         <ChatSidebar />
         <div className="flex flex-col w-full sm:w-[40rem] lg:w-[33rem] bg-slate-50 dark:bg-zinc-800">
@@ -24,4 +38,4 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default Chat;
