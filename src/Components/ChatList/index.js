@@ -8,7 +8,7 @@ const ChatList = ({chatUsers, setReceiver}) => {
   ))
 
   return (
-    <div className="bg-slate-50 dark:bg-zinc-800 w-full">
+    <div className="bg-slate-50 dark:bg-zinc-800 w-full h-full overflow-y-scroll">
       {item}
     </div>
   )

@@ -42,7 +42,7 @@ const Chat = () => {
   return (
     <div className="flex overflow-hidden">
       <ChatSidebar />
-      <div className="flex flex-col w-full sm:w-[40rem] lg:w-[33rem] bg-slate-50 dark:bg-zinc-800">
+      <div className="flex flex-col w-full sm:w-[40rem] lg:w-[33rem] bg-slate-50 dark:bg-zinc-800  h-screen">
           <SearchBar />
           <ChatList chatUsers={chatUsers} setReceiver={setReceiver}/>
       </div>
