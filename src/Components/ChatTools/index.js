@@ -1,11 +1,30 @@
 import { useState } from "react";
+import { useTransition, animated } from 'react-spring'
 
-const ChatTools = ({receiver}) => {
+const ChatTools = ({ receiver }) => {
   const [showDropDown, setShowDropDown] = useState(false);
 
   const [muteUnmute, setMuteUnmute] = useState(false);
   const [report, setReport] = useState(false);
   const [exit, setExit] = useState(false);
+
+  const reportTransition = useTransition(report, {
+    from: { x: -10, y: 500, opacity: 0 },
+    enter: { x: 0, y: 0, opacity: 100 },
+    leave: { x: 10, y: 600, opacity: 0 },
+  })
+
+  const exitTransition = useTransition(exit, {
+    from: { x: -10, y: 500, opacity: 0 },
+    enter: { x: 0, y: 0, opacity: 100 },
+    leave: { x: 10, y: 500, opacity: 0 },
+  })
+
+  const handleCancellation = (e) => {
+    e.preventDefault()
+    setReport(false)
+    setExit(false)
+  }
 
   return (
     <>
@@ -25,7 +44,7 @@ const ChatTools = ({receiver}) => {
             </svg>
 
             <div className="relative lg:w-96">
-              <input type="search" name="search" placeholder="جستجوی پیام..." className="relative peer text-sm z-10 bg-transparent w-10 h-10 rounded-full border cursor-pointer outline-none transition-all duration-300 px-5 dark:text-white focus:w-full focus:border-blue-500 focus:cursor-text focus:pr-[40px]"/>
+              <input type="search" name="search" placeholder="جستجوی پیام..." className="relative peer text-sm z-10 bg-transparent w-10 h-10 rounded-full border cursor-pointer outline-none transition-all duration-300 px-5 dark:text-white focus:w-full focus:border-blue-500 focus:cursor-text focus:pr-[40px]" />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -34,28 +53,26 @@ const ChatTools = ({receiver}) => {
               >
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
               </svg>
-          
+
             </div>
-            
+
 
           </div>
 
           <div
-            className={`${
-              showDropDown
-                ? "h-full w-full fixed duration-300 opacity-100"
-                : "opacity-0"
-            }`}
+            className={`${showDropDown
+              ? "h-full w-full fixed duration-300 opacity-100"
+              : "opacity-0"
+              }`}
             onClick={() => setShowDropDown(false)}
           ></div>
           <ul
-            className={`text-zinc-900 dark:text-white list-none p-2 bg-zinc-100 dark:bg-zinc-700 border-zinc-100 dark:border-zinc-700 rounded-xl transition-all ease-in-out duration-300 mt-3 font-normal z-30 ${
-              showDropDown ? "scale-100" : `opacity-0 scale-0`
-            }`}
+            className={`text-zinc-900 dark:text-white list-none bg-slate-50 dark:bg-gray-700 border-zinc-100 dark:border-zinc-700 rounded-xl transition-all ease-in-out duration-300 mt-5 overflow-hidden font-normal z-30 ${showDropDown ? "scale-100" : `opacity-0 scale-0`
+              }`}
           >
             <li
               onClick={() => setMuteUnmute(!muteUnmute)}
-              className="flex items-center p-1 pb-3 rounded-sm cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-700"
+              className="flex items-center p-1 pb-3 rounded-sm cursor-pointer hover:bg-zinc-200 dark:hover:bg-gray-600"
             >
               {muteUnmute ? (
                 <>
@@ -90,7 +107,7 @@ const ChatTools = ({receiver}) => {
               )}
             </li>
             <li
-              className="flex items-center p-1 pb-3 rounded-sm cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-700"
+              className="flex items-center p-1 pb-3 rounded-sm cursor-pointer hover:bg-zinc-200 dark:hover:bg-gray-600"
               onClick={() => setReport(true)}
             >
               <svg
@@ -105,7 +122,7 @@ const ChatTools = ({receiver}) => {
               <span>گزارش</span>
             </li>
             <li
-              className="flex items-center p-1 pb-3 rounded-sm cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-700"
+              className="flex items-center p-1 pb-3 rounded-sm cursor-pointer hover:bg-zinc-200 dark:hover:bg-gray-600"
               onClick={() => setExit(true)}
             >
               <svg
@@ -128,73 +145,99 @@ const ChatTools = ({receiver}) => {
         </div>
       </div>
 
-      {showDropDown && report ? (
-        <>
-          <div
-            className={`${
-              report
-                ? "h-full w-full bg-black/60 duration-300 opacity-100 absolute top-0 left-0"
-                : "opacity-0"
-            }`}
-            onClick={() => setReport(false)}
-          ></div>
-          <div
-            dir="rtl"
-            className={`${
-              showDropDown && report
-                ? "bg-slate-50 dark:bg-zinc-700 dark:text-white left-[38%] top-[40%] fixed w-[28rem] h-32 rounded-lg pt-4 pr-5 scale-100 opacity-100"
-                : "opacity-0 scale-0"
-            }`}
-          >
-            <p>آیا از گزارشی که می دهید مطمئن هستید؟</p>
-            <div className="flex justify-end items-center w-full space-x-4 mt-10">
-              <button
-                onClick={() => setReport(false)}
-                className="ease-in-out duration-200 px-3 py-2 rounded-xl hover:bg-zinc-800/10 dark:hover:bg-blue-200/10"
-              >
-                لغو
-              </button>
-              <button className="ease-in-out duration-200 px-3 py-2 rounded-xl hover:bg-zinc-800/10 dark:hover:bg-blue-200/10">
-                تایید
-              </button>
-            </div>
-          </div>
-        </>
-      ) : null}
 
-      {showDropDown && exit ? (
+      {reportTransition((style, item) =>
+        item ?
+          <>
+            <div
+              className={`${item
+                ? "h-full w-full bg-black/30 duration-300 opacity-100 absolute top-0 left-0"
+                : "opacity-0"
+                }`}
+              onClick={handleCancellation}
+            ></div>
+
+            <animated.div
+              style={style}
+              dir="rtl"
+              className="bg-slate-50 dark:bg-gray-700 dark:text-white fixed rounded-lg mx-auto mx-auto px-10 py-6 top-[30%] w-[700px]"
+            >
+              <form>
+                <h2 className="text-lg mb-3">گزارش:</h2>
+
+                <ul dir="rtl" className="items-center w-full text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                  <li className="w-full border-b border-gray-200 sm:border-b-0 dark:border-gray-600">
+                      <div className="flex items-center px-3">
+                          <label for="horizontal-list-radio-license" className="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">حساب جعلی </label>
+                          <input id="horizontal-list-radio-license" type="radio" value="" name="list-radio" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                      </div>
+                  </li>
+                  <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                      <div className="flex items-center px-3">
+                          <label for="horizontal-list-radio-id" className="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">کودک آزاری</label>
+                          <input id="horizontal-list-radio-id" type="radio" value="" name="list-radio" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                      </div>
+                  </li>
+                  <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                      <div className="flex items-center px-3">
+                          <label for="horizontal-list-radio-millitary" className="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">هرزنامه</label>
+                          <input id="horizontal-list-radio-millitary" type="radio" value="" name="list-radio" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                      </div>
+                  </li>
+                  <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                      <div className="flex items-center px-3">
+                          <label for="horizontal-list-radio-passport" className="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">دیگر</label>
+                          <input id="horizontal-list-radio-passport" type="radio" value="" name="list-radio" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                      </div>
+                  </li>
+                </ul>
+                <div className="flex justify-end items-center w-full space-x-4 mt-10">
+                  <button
+                    onClick={handleCancellation}
+                    className="ease-in-out duration-200 px-3 py-2 rounded-xl hover:bg-zinc-800/10 dark:hover:bg-blue-200/10"
+                  >
+                    لغو
+                  </button>
+                  <button className="ease-in-out duration-200 px-3 py-2 rounded-xl hover:bg-zinc-800/10 dark:hover:bg-blue-200/10">
+                    تایید
+                  </button>
+                </div>
+              </form>
+            </animated.div>
+          </>
+          : ''
+      )}
+
+      {exitTransition((style, item) =>
+        item ?
         <>
           <div
-            className={`${
-              exit
-                ? "h-full w-full bg-black/60 duration-300 opacity-100 absolute top-0 left-0"
-                : "opacity-0"
-            }`}
-            onClick={() => setExit(false)}
+            className={`${item
+              ? "h-full w-full bg-black/30 duration-300 opacity-100 absolute top-0 left-0"
+              : "opacity-0"
+              }`}
+            onClick={handleCancellation}
           ></div>
-          <div
+          <animated.div
+            style={style}
             dir="rtl"
-            className={`${
-              showDropDown && exit
-                ? "bg-slate-50 dark:bg-zinc-700 dark:text-white left-[38%] top-[40%] fixed w-[28rem] h-32 rounded-lg pt-4 pr-5 scale-100 opacity-100"
-                : "opacity-0 scale-0"
-            }`}
-          >
+            className="bg-slate-50 dark:bg-gray-700 dark:text-white left-[38%] top-[40%] fixed w-[28rem] h-32 rounded-lg pt-4 pr-5">
             <p>آیا قصد دارید گروه/ کانال را ترک کنید؟</p>
             <div className="flex justify-end items-center w-full space-x-4 mt-10">
               <button
-                onClick={() => setExit(false)}
+                onClick={handleCancellation}
                 className="ease-in-out duration-200 px-3 py-2 rounded-xl hover:bg-zinc-800/10 dark:hover:bg-blue-200/10"
               >
                 لغو
               </button>
-              <button className="text-red-500 ease-in-out duration-200 px-3 py-2 rounded-xl hover:bg-blue-200/10">
+              <button className="text-red-500 ease-in-out duration-200 px-3 py-2 hover:bg-blue-200/10">
                 ترک کانال
               </button>
             </div>
-          </div>
+          </animated.div>
         </>
-      ) : null}
+      : ''
+      )}
     </>
   );
 };

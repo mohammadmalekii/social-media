@@ -20,7 +20,7 @@ const Login = () => {
           />
           <label
             htmlFor="username"
-            className="peer-focus:font-medium absolute text-sm text-zinc-900 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 right-0 -z-10 origin-[0] peer-focus:right-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:translate-x-1"
+            className="peer-focus:font-medium absolute text-sm text-zinc-900 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 right-0 z-10 origin-[0] peer-focus:right-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:translate-x-1"
           >
             نام کاربری
           </label>
