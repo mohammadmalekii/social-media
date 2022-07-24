@@ -1,9 +1,12 @@
+import useChat from '../../Context/ChatContext'
 import ChatListItem from '../ChatListItem'
 
-const ChatList = ({chatUsers, setReceiver}) => {
+const ChatList = () => {
+  const {chatUsers, selectUser} = useChat()
+
   const item = chatUsers.map((item, i) => (
-    <div onClick={() => setReceiver(item)} className="w-full flex justify-between  text-slate-900 dark:text-white px-5 hover:bg-zinc-200  dark:hover:bg-zinc-700 hover:cursor-pointer ease-in-out duration-200">
-      <ChatListItem key={i} firstname={item.firstname}/>
+    <div onClick={() => selectUser(item)} className="w-full flex justify-between  text-slate-900 dark:text-white px-5 hover:bg-zinc-200  dark:hover:bg-zinc-700 hover:cursor-pointer ease-in-out duration-200">
+      <ChatListItem key={i} firstname={item.firstname} />
     </div>
   ))
 

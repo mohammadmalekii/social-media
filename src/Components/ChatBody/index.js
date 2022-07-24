@@ -1,12 +1,15 @@
+import useChat from "../../Context/ChatContext";
 import useRightClickMenu from "../../hooks/useRightClickMenu";
 import ContextMenu from '../ContextMenu';
 import Message from '../Message'
 
-const ChatBody = ({receiver, user, messages}) => {
+const ChatBody = () => {
+    const { receiver, user, messages } = useChat()
+    
     const { x, y, showMenu } = useRightClickMenu();
 
-    const showMessages = messages.map((item, i) => {
-        return <Message messages={item} key={i} user={user}/>
+    const showMessages = messages.map((message, i) => {
+        return <Message messages={message} key={i} user={user} time={message.time}/>
     })
 
     return (

@@ -10,46 +10,46 @@ import { useNavigate } from 'react-router'
 
 import {collection, getDocs} from 'firebase/firestore'
 import {db} from "../../firebase.config"
+import useChat from '../../Context/ChatContext'
 
 const Chat = () => {
   const navigate = useNavigate();
-  const [user, setuser] = useState()
-  const [chatUsers, setChatUsers] = useState([])
-  const [receiver, setReceiver] = useState(null)
-  const [messages, setMessages] = useState([])
+  
+  
 
+  const {user, addUser, getChatUsers} = useChat()
 
   useEffect(() => {
     // get from localStorage
     const user = JSON.parse(localStorage.getItem("user"))
-
+    
     // if no user -> redirect
-    user ? setuser(user) : navigate('/')
-  }, [navigate])
+    user ? addUser(user) : navigate('/')
+  }, [navigate, addUser])
 
   useEffect(() => {
     if(!user) return 
     (async () => {
         const querySnapshot = await getDocs(collection(db, "users"))
-        setChatUsers(
+        getChatUsers(
             querySnapshot.docs
             .map((doc) => doc.data())
             .filter((obj) => obj.uid !== user.uid)
         )
         })()
-}, [user])
+  }, [user ,getChatUsers])
 
   return (
     <div className="flex overflow-hidden">
       <ChatSidebar />
-      <div className="flex flex-col w-full sm:w-[40rem] lg:w-[33rem] bg-slate-50 dark:bg-zinc-800  h-screen">
+      <div className="flex flex-col w-full sm:w-[40rem] lg:w-[33rem] bg-slate-50 dark:bg-zinc-800 h-screen">
           <SearchBar />
-          <ChatList chatUsers={chatUsers} setReceiver={setReceiver}/>
+          <ChatList />
       </div>
       <div className="hidden md:flex flex-col justify-between w-full min-w-xl h-screen mx-auto bg-neutral-100 dark:bg-zinc-900">
           <ChatHeader />
-          <ChatBody receiver={receiver} user={user} messages={messages}/>
-          <SendMessage receiver={receiver} user={user} setMessages={setMessages}/>
+          <ChatBody />
+          <SendMessage />
       </div>
     </div>
   )

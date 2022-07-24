@@ -1,6 +1,8 @@
+import useChat from "../../Context/ChatContext"
 import avatar from "../../images/avatar.png"
 
 const ChatListItem = ({firstname}) => {
+  const { lastMessage } = useChat()
   return (
     
     <div className="w-full flex justify-between  text-slate-900 dark:text-white px-5 hover:bg-zinc-200  dark:hover:bg-zinc-700 hover:cursor-pointer ease-in-out duration-200">

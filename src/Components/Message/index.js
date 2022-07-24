@@ -1,11 +1,15 @@
-const Message = ({ messages, user }) => {
+import useChat from "../../Context/ChatContext"
+
+const Message = ({ messages, user, time }) => {
+    const { receiver } = useChat()
+
     return (
         <>
         {user.uid === messages.uid ?
             <div className="flex justify-end px-10 pt-5">
                 <div className="mx-3">
                     <div className="text-right">
-                        <span className="text-gray-500 text-left text-[10px] mr-3">12:25 PM</span>
+                        <span className="text-gray-500 text-left text-[10px] mr-3">{time} {new Date().getHours() > 12 ? 'PM' : 'AM'}</span>
                         <span className="text-zinc-500 dark:text-zinc-300">You</span>
                     </div>
                     <div className='flex items-center'>
@@ -24,8 +28,8 @@ const Message = ({ messages, user }) => {
                 <img className="w-8 h-8 rounded-md" src="./img/gold-color-solid-background-1920x1080.png" alt="" />
                 <div className="mx-3">
                     <div className="text-left">
-                        <span className="text-zinc-500 dark:text-zinc-300">charlie</span>
-                        <span className="text-gray-500 text-left text-[10px] ml-3">12:25 PM</span>
+                        <span className="text-zinc-500 dark:text-zinc-300">{receiver.firstname}</span>
+                        <span className="text-gray-500 text-left text-[10px] ml-3">{time} {new Date().getHours() > 12 ? 'PM' : 'AM'}</span>
                     </div>
                     <div className='flex items-center'>
                         <div className="bg-white dark:bg-zinc-800 max-w-sm text-white p-2 pr-3 rounded-tl-none rounded-xl mt-1">
