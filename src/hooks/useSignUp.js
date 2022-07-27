@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { auth, db } from "../firebase.config";
@@ -37,11 +37,13 @@ const useSignUp = () => {
       const userId = responseFormAuth.user.uid;
 
       // saveing to firestore
-      await addDoc(collection(db, "users"), {
+      await setDoc(doc(db, "users", userId), {
         firstname: values.firstname,
         lastname: values.lastname,
         email: values.email,
         password: values.password,
+        avatar:'https://firebasestorage.googleapis.com/v0/b/chat-colony-d98fb.appspot.com/o/default-avatar%2Favatar.jpg?alt=media&token=7e3b343e-17b0-49a7-a369-93a6a2525168',
+        avatarPath: 'avatar',
         uid: userId,
       });
 

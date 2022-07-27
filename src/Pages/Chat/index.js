@@ -5,7 +5,7 @@ import ChatList from '../../Components/ChatList'
 import ChatSidebar from '../../Components/ChatSidebar'
 import SearchBar from '../../Components/SearchBar'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router'
 
 import {collection, getDocs} from 'firebase/firestore'
@@ -14,8 +14,6 @@ import useChat from '../../Context/ChatContext'
 
 const Chat = () => {
   const navigate = useNavigate();
-  
-  
 
   const {user, addUser, getChatUsers} = useChat()
 

@@ -15,6 +15,15 @@ export const ChatProvider = ({children}) => {
             }
         })
     }
+    
+    const getUserInfo = (userInfo) => {
+        dispatch({
+            type: "GET_USER_INFO",
+            payload: { 
+                userInfo
+            }
+        })
+    }
 
     const getChatUsers = (accounts) => {
         dispatch({
@@ -49,10 +58,12 @@ export const ChatProvider = ({children}) => {
         chatUsers: state.chatUsers,
         receiver: state.receiver,
         messages: state.messages,
+        userInfo:state.userInfo,
         addUser,
         getChatUsers,
         selectUser,
-        getMessages
+        getMessages,
+        getUserInfo
     }
 
     return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>

@@ -1,5 +1,4 @@
 import Logout from '../Logout'
-import profile from '../../images/avatar-profile.jpg'
 
 const Setting = ({ setShowSetting, closeSidebar }) => {
 
@@ -20,7 +19,7 @@ const Setting = ({ setShowSetting, closeSidebar }) => {
 
         <div className="flex justify-start py-5 items-center border-b border-zinc-300 w-full m-0">
           <div className='w-16 h-16 rounded-md overflow-hidden'>
-            <img className='w-full h-full' src={profile} alt="" />
+            <img className='w-full h-full' src={''} alt="" />
           </div>
 
           <div className="flex flex-col mx-5">

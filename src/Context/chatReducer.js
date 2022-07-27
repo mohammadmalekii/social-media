@@ -1,5 +1,8 @@
 export const initialState = {
     user: [],
+    userInfo:false
+    
+    ,
     chatUsers:[],
     receiver: null,
     messages: []
@@ -13,6 +16,11 @@ const chatReducer = (state, action) => {
             return{
                 ...state,
                  user: payload.user
+            }
+        case 'GET_USER_INFO':
+            return{
+                ...state,
+                userInfo: payload.userInfo
             }
         case 'GET_CHAT_USERS':
             return{

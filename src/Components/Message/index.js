@@ -1,7 +1,7 @@
 import useChat from "../../Context/ChatContext"
 
 const Message = ({ messages, user, time }) => {
-    const { receiver } = useChat()
+    const { receiver, userInfo } = useChat()
 
     return (
         <>
@@ -21,11 +21,15 @@ const Message = ({ messages, user, time }) => {
                         </div>
                     </div>
                 </div>
-                <img className="w-8 h-8 rounded-md" src="./img/violet-color-solid-background-1920x1080.png" alt="" />
+                <div className="flex items-center w-8 h-8 rounded-md overflow-hidden">
+                    <img className="w-full" src={userInfo.avatar} alt="" />
+                </div>
             </div>
             :
             <div className="flex justify-start px-10 pt-5">
-                <img className="w-8 h-8 rounded-md" src="./img/gold-color-solid-background-1920x1080.png" alt="" />
+                <div className="flex items-center w-8 h-8 rounded-md overflow-hidden">
+                    <img className="w-full" src={receiver.avatar} alt="" />
+                </div>
                 <div className="mx-3">
                     <div className="text-left">
                         <span className="text-zinc-500 dark:text-zinc-300">{receiver.firstname}</span>
