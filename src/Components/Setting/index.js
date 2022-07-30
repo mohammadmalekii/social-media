@@ -1,6 +1,9 @@
+import useChat from '../../Context/ChatContext'
 import Logout from '../Logout'
 
 const Setting = ({ setShowSetting, closeSidebar }) => {
+
+  const {userInfo} = useChat()
 
   const handleSettingForm = () => {
     setShowSetting(false)
@@ -18,8 +21,8 @@ const Setting = ({ setShowSetting, closeSidebar }) => {
         </div>
 
         <div className="flex justify-start py-5 items-center border-b border-zinc-300 w-full m-0">
-          <div className='w-16 h-16 rounded-md overflow-hidden'>
-            <img className='w-full h-full' src={''} alt="" />
+          <div className='flex items-center w-16 h-16 rounded-full overflow-hidden'>
+            <img className='w-full' src={userInfo.avatar} alt="" />
           </div>
 
           <div className="flex flex-col mx-5">

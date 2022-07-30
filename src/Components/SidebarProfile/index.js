@@ -55,7 +55,7 @@ const SidebarProfile = () => {
                 <div className="flex items-center w-20 h-20 rounded-full overflow-hidden">
                     <img className="w-full" src={userInfo && userInfo.avatar} alt="avatar" />
                 </div>
-                <div className='absolute right-[-2px] bottom-[-4px] bg-white rounded-full overflow-hidden p-[7px] cursor-pointer hover:bg-gray-200 transition-all duration-200'>
+                <div className='absolute right-[-2px] bottom-[-4px] bg-slate-50 dark:bg-gray-700 rounded-full overflow-hidden p-[7px] cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-400 drop-shadow-md'>
                     <label htmlFor='photo'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-5 cursor-pointer" viewBox="0 0 16 16">
                             <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z" />

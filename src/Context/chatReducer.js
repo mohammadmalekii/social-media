@@ -1,11 +1,10 @@
 export const initialState = {
     user: [],
-    userInfo:false
-    
-    ,
+    userInfo:false,
     chatUsers:[],
     receiver: null,
-    messages: []
+    messages: [],
+    replay: '',
 }
 
 const chatReducer = (state, action) => {
@@ -36,6 +35,11 @@ const chatReducer = (state, action) => {
             return{
                 ...state,
                 messages: payload.messages
+            }
+        case 'GET_REPLAY':
+            return{
+                ...state,
+                replay: payload.replay
             }
         
         default:

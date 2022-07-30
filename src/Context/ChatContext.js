@@ -52,6 +52,15 @@ export const ChatProvider = ({children}) => {
             }
         })
     }
+    
+    const getReplay = (replay) => {
+        dispatch({
+            type: 'GET_REPLAY',
+            payload:{
+                replay
+            }
+        })
+    }
 
     const value = {
         user: state.user,
@@ -59,11 +68,13 @@ export const ChatProvider = ({children}) => {
         receiver: state.receiver,
         messages: state.messages,
         userInfo:state.userInfo,
+        replay:state.replay,
         addUser,
         getChatUsers,
         selectUser,
         getMessages,
-        getUserInfo
+        getUserInfo,
+        getReplay
     }
 
     return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>

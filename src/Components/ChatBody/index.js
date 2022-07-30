@@ -9,7 +9,7 @@ const ChatBody = () => {
     const { x, y, showMenu } = useRightClickMenu();
 
     const showMessages = messages.map((message, i) => {
-        return <Message messages={message} key={i} user={user} time={message.time}/>
+        return <Message message={message.message} key={i} user={user} time={message.time} uid={message.uid} replay={message.replay}/>
     })
 
     return (
